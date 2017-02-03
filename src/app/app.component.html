@@ -1,3 +1,39 @@
-<h1>
-  {{title}}
-</h1>
+<div clas="page-header">
+      <h1>
+        {{model.name}}'s To Do List  
+        <span>
+          {{incompleteTodos()}}
+        </span>
+      </h1>
+    </div>
+    
+    <div class="panel">
+      <div class="input-group">
+        <input class="form-control" />
+        <span class="input-group-btn">
+          <button class="btn btn-default">Add</button>
+        </span>
+      </div>    
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>State</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let todo of model.todos">
+          <td>
+            {{todo.name}}
+          </td>
+          <td>
+            <input type="checkbox" 
+              [(ngModel)]="todo.state">
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
