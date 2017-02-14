@@ -1,17 +1,24 @@
 <div clas="page-header">
       <h1>
         {{model.name}}'s To Do List  
-        <span>
+        <span [ngClass]="warningLevel()" 
+          *ngIf="incompleteTodos() > 0">
+          
           {{incompleteTodos()}}
         </span>
       </h1>
     </div>
     
-    <div class="panel">
-      <div class="input-group">
-        <input class="form-control" />
+    <div class="">
+      <div class="">
+        
+        <input class="" [(ngModel)]="userText"/>
+
         <span class="input-group-btn">
-          <button class="btn btn-default">Add</button>
+          <button class="btn btn-default"
+            (click)="addTodo(userText)">
+            Add
+          </button>
         </span>
       </div>    
     </div>
